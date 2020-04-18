@@ -1,0 +1,44 @@
+.card__header {
+  position: relative;
+}
+.card__picture {
+  position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 9vw), 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 9vw), 0 100%);
+}
+.carousel-image {
+    filter: brightness(50%);
+    width: auto;
+    height: 40vw;
+}
+.carousel-caption {
+  font-size: 4vw;
+  top:20%;
+  left: 10%;
+  right: 10%;
+}
+.section-mid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  clip-path: polygon(0 9vw, 100% 0, 100% calc(100% - 9vw), 0 100%);
+  margin-top: calc(10px - 9vw);
+}
+.picture-box__img {
+  display: block;
+  width: 100%;
+  height: 110%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.picture-box__img--1 {
+  padding-top: 15%;
+}
+.picture-box__img--2 {
+  margin-left: 10px;
+  padding-bottom: 15%;
+}
+.picture-box__img--3 {
+  margin-left: 20px;
+  padding-bottom: 27%;
+}
