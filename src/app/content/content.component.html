@@ -1,6 +1,3 @@
-
-
-
 <div class="card__header">
   <div class="card__picture">
     <ngb-carousel>
@@ -23,14 +20,55 @@
     </ngb-carousel>
   </div>
 </div>
+
+<div class="section-description">
+  <div class="row align-items-center">
+    <div class="col-sm description-left">
+      <div class="card border-0 mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Fun Facts About Oxford:</h5>
+          <ul class="card-text">
+            <li>Oxford University was established in or around the 11th century, making it the second-oldest known university in the world behind the University of Bologna.</li>
+            <li>The town was named around AD 900, as a river crossing (or “ford”) for oxen. It was later damaged during the 1066 invasion, in which William the Conqueror took over England.</li>
+        </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm description-right">
+      <div class="card border-0 mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Top Attractions:</h5>
+          <span class="title-description">Click on the attractions below to see their location on the map:</span>
+          <ul class="card-text">
+            <li><button (click)="onClickMe(-1.260128, 51.755336, $event)" type="button" class="btn btn-link">Ashmolean Museum</button></li>
+            <li><button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Modern Art Oxford</button></li>
+            <li><button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Bodleian Library</button></li>
+            <li><button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Radcliffe Camera</button></li>
+            <li><button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Pitt Rivers Museum</button></li>
+            <li><button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Oxford University Museum of Natural History</button></li>
+            <li><button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Port Meadow</button></li>
+            <li><button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Trinity College</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-description">
+  <div id='map' style='width: auto; height: 50vw;'></div>
+</div>
+
 <section class="section-mid">
-  <div class="picture-box">
-    <img class="picture-box__img picture-box__img--1" src="/assets/images/1.jpg" alt="1st img" />
+  <div>
+    <img class="picture-box-img picture-box-img-1" src="/assets/images/1.jpg" alt="1st img" />
   </div>
-  <div class="picture-box">
-    <img class="picture-box__img picture-box__img--2" src="/assets/images/2.jpg" alt="2nd img" />
+  <div>
+    <img class="picture-box-img picture-box-img-2" src="/assets/images/2.jpg" alt="2nd img" />
   </div>
-  <div class="picture-box">
-    <img class="picture-box__img picture-box__img--3" src="/assets/images/3.jpg" alt="3rd img" />
+  <div>
+    <img class="picture-box-img picture-box-img-3" src="/assets/images/3.jpg" alt="3rd img" />
   </div>
 </section>
+
+
