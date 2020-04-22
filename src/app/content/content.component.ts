@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { environment } from '../../environments/environment';
+import * as mapboxgl from 'mapbox-gl';
 
 @Component({
   selector: 'app-content',
@@ -9,28 +11,11 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class ContentComponent implements OnInit {
+  map: mapboxgl.Map;
+  style = 'mapbox://styles/mapbox/outdoors-v9';
+  lat = 51.755336;
+  lng = -1.2449378;
   
-  onClickMe(x,y,e: any) {
-    mapboxgl.accessToken = 'API KEY';
-    var map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [x,y],
-      zoom: 17
-    });
-    map.addControl(new mapboxgl.NavigationControl());
-    map.scrollZoom.disable();
-    map.jumpTo({
-      center: [x, y],
-      essential: true // this animation is considered essential with respect to prefers-reduced-motion
-      });
-      new mapboxgl.Popup({ closeOnClick: false }).setHTML(
-        '<h6>'+e.target.textContent+'</h6>'
-        ).setLngLat([x, y]).addTo(map);
-        
-      
-  }
-
   constructor(config: NgbCarouselConfig) {
     config.interval = 5000;
     config.pauseOnHover = false;
@@ -39,15 +24,33 @@ export class ContentComponent implements OnInit {
     config.showNavigationArrows = true;
     config.showNavigationIndicators = false;
   }
-  ngOnInit(): void {
-    mapboxgl.accessToken = 'API KEY';
-    var map = new mapboxgl.Map({
+  ngOnInit() {
+    this.initializeMap()
+  }
+  private initializeMap() {
+    this.buildMap()
+  }
+  buildMap() {
+    mapboxgl.accessToken = environment.mapbox.accessToken
+    this.map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [-1.2449378, 51.7517371],
-      zoom: 11.15
+      style: this.style,
+      zoom: 11.15,
+      center: [this.lng, this.lat]
     });
-    map.addControl(new mapboxgl.NavigationControl());
-    map.scrollZoom.disable();
+    this.map.addControl(new mapboxgl.NavigationControl());
+    this.map.scrollZoom.disable();
+  }
+  onClickMe(x,y,e: any) {
+    this.map.flyTo({
+      center: [x, y],
+      zoom: 17,
+      essential: true
+    });
+    new mapboxgl.Popup()
+      .setHTML('<h6>' + e.target.textContent + '</h6>' )
+      .setLngLat([x, y])
+      .addTo(this.map);
   }
 }
+
