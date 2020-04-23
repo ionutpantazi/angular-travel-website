@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   mapbox: {
-    accessToken: 'MAP API KEY'
+    accessToken: 'MAPs API KEY'
   }
 };
 
