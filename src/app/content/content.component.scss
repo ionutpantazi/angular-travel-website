@@ -33,7 +33,20 @@
   padding-bottom: 4vw;
 }
 .btn {
-  padding: 0;
+  padding: 2px;
+}
+.popover {
+  visibility: visible;
+  background-color: pink;
+}
+.dropdown {
+  padding-top: 20px;
+  padding-left: 10px;
+  position: absolute;
+  z-index: 10;
+}
+.dropdown-menu {
+  text-align: center;
 }
 .title-description {
   font-size: 12px;

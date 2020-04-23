@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "angular-travel-website",
+    "public": "dist/angular-travel-website",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

@@ -26,12 +26,13 @@ export class ContentComponent implements OnInit {
   }
   ngOnInit() {
     this.initializeMap()
+    
   }
   private initializeMap() {
     this.buildMap()
   }
   buildMap() {
-    mapboxgl.accessToken = environment.mapbox.accessToken
+    (mapboxgl as any).accessToken = environment.mapbox.accessToken;
     this.map = new mapboxgl.Map({
       container: 'map',
       style: this.style,
