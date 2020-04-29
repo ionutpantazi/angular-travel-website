@@ -13,12 +13,12 @@
 }
 .carousel-caption {
   font-size: 4vw;
-  top:20%;
+  top:10%;
   left: 10%;
   right: 10%;
 }
 .section-description {
-  background: linear-gradient(90deg, rgba(244,247,252,1) 0%, rgba(219,219,252,1) 41%, rgba(209,222,245,1) 100%);
+  background: rgb(219, 228, 230);
   margin-top: calc(10px - 9vw);
   clip-path: polygon(0 9vw, 100% 0, 100% calc(100% - 9vw), 0 100%);
 }
@@ -29,8 +29,12 @@
   background-color:transparent;
 }
 .description-left {
-  margin-top: 12vw;
-  padding-bottom: 4vw;
+  margin-top: 9vw;
+  padding-right: 300px;
+}
+.description-right {
+  margin-top: 9vw;
+  margin-bottom: 9vw;
 }
 .btn {
   padding: 2px;
@@ -76,4 +80,46 @@
 .picture-box-img-3 {
   margin-left: 20px;
   padding-bottom: 27%;
+}
+@media only screen and (max-width: 600px) {
+  .section-mid-small {
+    display: block;
+  }
+  .section-mid {
+    display: none;
+  }
+  #map {
+    height: 75vw;
+  }
+  .description-left {
+    padding-right: 20px;
+    text-align: center;
+  }
+  .carousel-image {
+    height: 80vw;
+}
+}
+@media only screen and (min-width: 600px) {
+  .section-mid-small {
+    display : none;
+  }
+  #map {
+    height: 40vw;
+  }
+  .description-right {
+    margin-left: -50vw;
+  }
+}
+.section-footer {
+  background: rgb(241, 234, 238);
+  margin-top: calc(10px - 9vw);
+  clip-path: polygon(0 9vw, 100% 0, 100% 100%, 0 100%);
+  text-align: center;
+}
+.footer-left {
+  margin-top: 9vw;
+}
+.footer-right {
+  margin-top: 5vw;
+  margin-bottom: 2vw;
 }

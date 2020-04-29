@@ -1,7 +1,4 @@
-
-
-
-<div class="card__header">
+<div class="card__header" id="home">
   <div class="card__picture">
     <ngb-carousel>
       <ng-template ngbSlide>
@@ -9,7 +6,7 @@
           <img class="carousel-image" src="/assets/images/oxford.jpg" alt="Random first slide">
         </div>
         <div class="carousel-caption">
-          <p>Explore Oxford And Around Oxfordshire</p>
+          <p>This demo website features a responsive content with a breakpoint at 600px</p>
         </div>
       </ng-template>
       <ng-template ngbSlide>
@@ -17,7 +14,7 @@
           <img class="carousel-image" src="/assets/images/oxfordguide.jpg" alt="Random second slide">
         </div>
         <div class="carousel-caption">
-          <p>Oxford City Centre</p>
+          <p>Click on the links to see the content description change and the mapbox component fly to a new location</p>
         </div>
       </ng-template>
     </ngb-carousel>
@@ -29,12 +26,16 @@
     <div class="col-sm description-left">
       <div class="card border-0 mb-3">
         <div class="card-body">
-          <h5 class="card-title">Fun Facts About Oxford:</h5>
-          <ul class="card-text">
-            <li>Oxford University was established in or around the 11th century, making it the second-oldest known
-              university in the world behind the University of Bologna.</li>
-            <li>The town was named around AD 900, as a river crossing (or “ford”) for oxen. It was later damaged during
-              the 1066 invasion, in which William the Conqueror took over England.</li>
+          <h5 class="card-title">Top Attractions:</h5>
+          <span class="title-description">Click on the attractions below to see their location on the map:</span>
+          <ul class="card-text" style="list-style-type: none;">
+            <li><button (click)="onClickMe(-1.260128, 51.755336, $event)" type="button" class="btn btn-link">Ashmolean Museum</button></li>
+            <li><button (click)="onClickMe(-1.259019, 51.750808, $event)" type="button" class="btn btn-link">Modern Art Oxford</button></li>
+            <li><button (click)="onClickMe(-1.254321, 51.754053, $event)" type="button" class="btn btn-link">Bodleian Library</button></li>
+            <li><button (click)="onClickMe(-1.253855, 51.753251, $event)" type="button" class="btn btn-link">Radcliffe Camera</button></li>
+            <li><button (click)="onClickMe(-1.255649, 51.758689, $event)" type="button" class="btn btn-link">Pitt Rivers Museum</button></li>
+            <li><button (click)="onClickMe(-1.284549, 51.771779, $event)" type="button" class="btn btn-link">Port Meadow</button></li>
+            <li><button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Trinity College</button></li>
           </ul>
         </div>
       </div>
@@ -42,26 +43,20 @@
     <div class="col-sm description-right">
       <div class="card border-0 mb-3">
         <div class="card-body">
-          <h5 class="card-title">Top Attractions:</h5>
-          <span class="title-description">Click on the attractions below to see their location on the map:</span>
+          <h5 class="card-title">{{cardLeftTitle}} :</h5>
           <ul class="card-text">
-            <li><button (click)="onClickMe(-1.260128, 51.755336, $event)" type="button" class="btn btn-link">Ashmolean
-                Museum</button></li>
-            <li><button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Modern Art
-                Oxford</button></li>
-            <li><button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Bodleian
-                Library</button></li>
-            <li><button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Radcliffe
-                Camera</button></li>
-            <li><button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Pitt Rivers
-                Museum</button></li>
-            <li><button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Oxford
-                University Museum of Natural History</button></li>
-            <li><button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Port
-                Meadow</button></li>
-            <li><button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Trinity
-                College</button></li>
+            <li *ngFor="let details of cardLeftDetails">
+              {{ details }}
+            </li>
           </ul>
+          <div *ngIf="bottomDetails.length>0">
+            <h5 class="card-title">Details:</h5>
+            <ul>
+              <li *ngFor="let details of bottomDetails">
+                {{ details }}
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -71,16 +66,22 @@
   <button class="btn btn-primary" ngbDropdownAnchor (focus)="myDrop.open()">Top Attractions</button>
   <div ngbDropdownMenu aria-labelledby="dropdownBasic1" (click)="$event.stopPropagation(); myDrop.close();">
     <button (click)="onClickMe(-1.260128, 51.755336, $event)" type="button" class="btn btn-link">Ashmolean Museum</button><br>
-    <button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Modern Art Oxford</button><br>
-    <button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Bodleian Library</button><br>
-    <button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Radcliffe Camera</button><br>
-    <button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Pitt Rivers Museum</button><br>
-    <button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Port Meadow</button><br>
+    <button (click)="onClickMe(-1.259019, 51.750808, $event)" type="button" class="btn btn-link">Modern Art Oxford</button><br>
+    <button (click)="onClickMe(-1.254321, 51.754053, $event)" type="button" class="btn btn-link">Bodleian Library</button><br>
+    <button (click)="onClickMe(-1.253855, 51.753251, $event)" type="button" class="btn btn-link">Radcliffe Camera</button><br>
+    <button (click)="onClickMe(-1.255649, 51.758689, $event)" type="button" class="btn btn-link">Pitt Rivers Museum</button><br>
+    <button (click)="onClickMe(-1.284549, 51.771779, $event)" type="button" class="btn btn-link">Port Meadow</button><br>
     <button (click)="onClickMe(-1.259062, 51.750799, $event)" type="button" class="btn btn-link">Trinity College</button>
   </div>
 </div>
 <div class="section-description">
-  <div id='map' style='width: auto; height: 50vw;'></div>
+  <div id='map'></div>
+</div>
+
+<div class="section-mid-small">
+  <div class="section-description" style="height:250px; background-image: url('/assets/images/1.jpg'); background-size: cover; background-position: center;"></div>
+  <div class="section-description" style="height:250px; background-image: url('/assets/images/2.jpg'); background-size: cover; background-position: center;"></div>
+  <div class="section-description" style="height:250px; background-image: url('/assets/images/3.jpg'); background-size: cover; background-position: center;"></div>
 </div>
 
 <section class="section-mid">
@@ -94,3 +95,27 @@
     <img class="picture-box-img picture-box-img-3" src="/assets/images/3.jpg" alt="3rd img" />
   </div>
 </section>
+
+<div class="section-footer" id="contact">
+  <div class="row align-items-center">
+    <div class="col-sm footer-left">
+      <div class="card border-0 mb-3">
+        <div class="card-body">
+          <span>This demo shows an example website of a POI location map around Oxford's city
+            center. It's a simple single page app build in <b>Angular</b> using <b>Mapbox</b> api
+            to render a map containing 7 locations. When a user clicks a location the map will
+            'fly' to a new set of coordinates (lat/lng literals), add a marker and a popup.
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm footer-right">
+      <div class="card border-0 mb-3">
+        <div class="card-body">
+          <span>Repository available here:</span><br><a href="https://github.com/ionutpantazi/angular-travel-website">https://github.com/ionutpantazi/angular-travel-website</a><br><br>
+          <iframe src="https://ghbtns.com/github-btn.html?user=ionutpantazi&type=follow&count=true" frameBorder="0" scrolling="0" width="170px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

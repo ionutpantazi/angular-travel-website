@@ -1,13 +1,10 @@
 #navbar {
   background-color: #333;
   position: sticky;
-  z-index: 10;
-  height: 50px;
+  z-index: 99999;
   width:100%;
-  visibility: hidden;
   opacity: 80%;
   display: flex;
-  transition: all 0.2s linear;
 }
 #navbar a {
   float: left;
